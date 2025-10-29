@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead by Daylight Perk Loadout Guide</title>
+    <style>
+        :root {
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --accent: #8b0000;
+            --accent-light: #a00000;
+            --text: #e0e0e0;
+            --border: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .perk-selector {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--darker-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .perk-summary {
+            flex: 2;
+            min-width: 300px;
+            background-color: var(--darker-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .perk-slot {
+            margin-bottom: 20px;
+        }
+        
+        .perk-slot label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        select {
+            width: 100%;
+            padding: 10px;
+            background-color: #222;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 1rem;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .summary-content {
+            min-height: 400px;
+        }
+        
+        .perk-info {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .perk-name {
+            font-size: 1.4rem;
+            color: var(--accent-light);
+            margin-bottom: 10px;
+        }
+        
+        .pros, .cons, .synergy {
+            margin-bottom: 15px;
+        }
+        
+        .pros h4, .cons h4, .synergy h4 {
+            color: #4CAF50;
+            margin-bottom: 5px;
+        }
+        
+        .cons h4 {
+            color: #f44336;
+        }
+        
+        .synergy h4 {
+            color: #FF9800;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        .loadout-synergy {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .loadout-synergy h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid var(--border);
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dead by Daylight Perk Loadout Guide</h1>
+        <p class="subtitle">Select your perks and get detailed analysis of your loadout</p>
+    </header>
+    
+    <div class="container">
+        <section class="perk-selector">
+            <h2>Select Your Perks</h2>
+            
+            <div class="perk-slot">
+                <label for="perk1">Perk Slot 1:</label>
+                <select id="perk1">
+                    <option value="">-- Select a Perk --</option>
+                    <option value="self-care">Self-Care</option>
+                    <option value="spine-chill">Spine Chill</option>
+                    <option value="dead-hard">Dead Hard</option>
+                    <option value="borrowed-time">Borrowed Time</option>
+                    <option value="decisive-strike">Decisive Strike</option>
+                    <option value="iron-will">Iron Will</option>
+                    <option value="adrenaline">Adrenaline</option>
+                    <option value="balanced-landing">Balanced Landing</option>
+                </select>
+            </div>
+            
+            <div class="perk-slot">
+                <label for="perk2">Perk Slot 2:</label>
+                <select id="perk2">
+                    <option value="">-- Select a Perk --</option>
+                    <option value="self-care">Self-Care</option>
+                    <option value="spine-chill">Spine Chill</option>
+                    <option value="dead-hard">Dead Hard</option>
+                    <option value="borrowed-time">Borrowed Time</option>
+                    <option value="decisive-strike">Decisive Strike</option>
+                    <option value="iron-will">Iron Will</option>
+                    <option value="adrenaline">Adrenaline</option>
+                    <option value="balanced-landing">Balanced Landing</option>
+                </select>
+            </div>
+            
+            <div class="perk-slot">
+                <label for="perk3">Perk Slot 3:</label>
+                <select id="perk3">
+                    <option value="">-- Select a Perk --</option>
+                    <option value="self-care">Self-Care</option>
+                    <option value="spine-chill">Spine Chill</option>
+                    <option value="dead-hard">Dead Hard</option>
+                    <option value="borrowed-time">Borrowed Time</option>
+                    <option value="decisive-strike">Decisive Strike</option>
+                    <option value="iron-will">Iron Will</option>
+                    <option value="adrenaline">Adrenaline</option>
+                    <option value="balanced-landing">Balanced Landing</option>
+                </select>
+            </div>
+            
+            <div class="perk-slot">
+                <label for="perk4">Perk Slot 4:</label>
+                <select id="perk4">
+                    <option value="">-- Select a Perk --</option>
+                    <option value="self-care">Self-Care</option>
+                    <option value="spine-chill">Spine Chill</option>
+                    <option value="dead-hard">Dead Hard</option>
+                    <option value="borrowed-time">Borrowed Time</option>
+                    <option value="decisive-strike">Decisive Strike</option>
+                    <option value="iron-will">Iron Will</option>
+                    <option value="adrenaline">Adrenaline</option>
+                    <option value="balanced-landing">Balanced Landing</option>
+                </select>
+            </div>
+        </section>
+        
+        <section class="perk-summary">
+            <h2>Perk Analysis</h2>
+            <div class="summary-content" id="summaryContent">
+                <p>Select perks to see their analysis and synergy...</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Dead by Daylight Perk Loadout Guide &copy; 2023 | This is a fan-made site and is not affiliated with Behaviour Interactive.</p>
+    </footer>
+
+    <script>
+        // Perk data
+        const perkData = {
+            "self-care": {
+                name: "Self-Care",
+                pros: [
+                    "Allows you to heal without needing a med-kit or other survivors",
+                    "Useful when playing solo or when teammates are occupied",
+                    "Can be combined with other healing perks for faster healing"
+                ],
+                cons: [
+                    "Healing takes 50% longer than normal",
+                    "Uses valuable time that could be spent on generators",
+                    "Makes you vulnerable while healing"
+                ],
+                synergy: [
+                    "Botany Knowledge reduces the healing penalty",
+                    "Works well with Resilience for faster actions while injured",
+                    "Combines with We'll Make It for faster healing of others after unhooking"
+                ]
+            },
+            "spine-chill": {
+                name: "Spine Chill",
+                pros: [
+                    "Alerts you when the killer is looking in your direction",
+                    "Increases action speed when active",
+                    "Counters stealth killers effectively"
+                ],
+                cons: [
+                    "Doesn't provide information on killer's exact location",
+                    "Can cause unnecessary panic if over-relied upon",
+                    "Less useful against killers with undetectable status"
+                ],
+                synergy: [
+                    "Combines well with Resilience for even faster action speeds",
+                    "Works with Urban Evasion for quick repositioning",
+                    "Pairs with Premonition for better killer location awareness"
+                ]
+            },
+            "dead-hard": {
+                name: "Dead Hard",
+                pros: [
+                    "Provides a brief moment of invincibility",
+                    "Can help reach pallets or windows you wouldn't normally make",
+                    "Allows for aggressive plays and extends chases"
+                ],
+                cons: [
+                    "Has a cooldown period after use",
+                    "Requires good timing to use effectively",
+                    "Can be baited out by experienced killers"
+                ],
+                synergy: [
+                    "Combines with other exhaustion perks for multiple escape options",
+                    "Works well with Iron Will for staying hidden after use",
+                    "Pairs with Sprint Burst for quick repositioning after exhaustion ends"
+                ]
+            },
+            "borrowed-time": {
+                name: "Borrowed Time",
+                pros: [
+                    "Protects unhooked survivors from being immediately downed again",
+                    "Encourages safer unhooks in the killer's terror radius",
+                    "Extends chase time by giving survivors endurance"
+                ],
+                cons: [
+                    "Only activates when unhooking in the killer's terror radius",
+                    "Doesn't protect the rescuer, only the rescued",
+                    "Can encourage risky unhooks"
+                ],
+                synergy: [
+                    "Combines with We'll Make It for fast healing after unhook",
+                    "Works well with Guardian for additional protection after unhook",
+                    "Pairs with Kindred for better unhook coordination"
+                ]
+            },
+            "decisive-strike": {
+                name: "Decisive Strike",
+                pros: [
+                    "Gives you a chance to escape the killer's grasp after being unhooked",
+                    "Punishes tunnelers and encourages killers to target other survivors",
+                    "Provides a skill check that rewards good timing"
+                ],
+                cons: [
+                    "Only active for a limited time after being unhooked",
+                    "Becomes useless if you miss the skill check",
+                    "Recent nerfs have reduced its effectiveness"
+                ],
+                synergy: [
+                    "Combines with Deliverance for multiple self-escape options",
+                    "Works well with Unbreakable for recovery after being downed",
+                    "Pairs with Soul Guard for protection against hexes while injured"
+                ]
+            },
+            "iron-will": {
+                name: "Iron Will",
+                pros: [
+                    "Reduces grunts of pain by 75-100% when injured",
+                    "Makes it harder for the killer to track you by sound",
+                    "Essential for stealthy gameplay and mind games"
+                ],
+                cons: [
+                    "Doesn't help against killers that rely on visual tracking",
+                    "Uses a perk slot that could be used for more active abilities",
+                    "Less effective against killers with good headphones"
+                ],
+                synergy: [
+                    "Combines with Lightweight for reduced scratch marks",
+                    "Works well with Quick & Quiet for silent vaults and locker entries",
+                    "Pairs with Dance With Me for disappearing scratch marks after vaults"
+                ]
+            },
+            "adrenaline": {
+                name: "Adrenaline",
+                pros: [
+                    "Instantly heals one health state when the last generator is completed",
+                    "Provides a speed boost when activated",
+                    "Can turn the tide in endgame situations"
+                ],
+                cons: [
+                    "Only activates when the last generator is completed",
+                    "Does nothing if you're healthy when it activates",
+                    "Can be countered by killers with NOED"
+                ],
+                synergy: [
+                    "Combines with Hope for even greater speed in the endgame",
+                    "Works well with Sprint Burst for immediate distance after activation",
+                    "Pairs with Resilience for faster generator completion while injured"
+                ]
+            },
+            "balanced-landing": {
+                name: "Balanced Landing",
+                pros: [
+                    "Reduces stagger duration from falls by 75%",
+                    "Provides a 150% sprint burst after falling from great heights",
+                    "Creates new looping opportunities on multi-level maps"
+                ],
+                cons: [
+                    "Only activates when falling from significant heights",
+                    "Less useful on flat maps or against certain killers",
+                    "Has an exhaustion cooldown like other sprint perks"
+                ],
+                synergy: [
+                    "Combines with other exhaustion perks for multiple escape options",
+                    "Works well with Windows of Opportunity for identifying fall locations",
+                    "Pairs with Lithe for exhaustion management in chases"
+                ]
+            }
+        };
+
+        // Get DOM elements
+        const perkSelects = [
+            document.getElementById('perk1'),
+            document.getElementById('perk2'),
+            document.getElementById('perk3'),
+            document.getElementById('perk4')
+        ];
+        
+        const summaryContent = document.getElementById('summaryContent');
+
+        // Add event listeners to perk selects
+        perkSelects.forEach(select => {
+            select.addEventListener('change', updateSummary);
+        });
+
+        // Function to update the summary based on selected perks
+        function updateSummary() {
+            const selectedPerks = [];
+            
+            // Get selected perks
+            perkSelects.forEach(select => {
+                if (select.value) {
+                    selectedPerks.push(select.value);
+                }
+            });
+            
+            // Clear previous content
+            summaryContent.innerHTML = '';
+            
+            // If no perks selected, show default message
+            if (selectedPerks.length === 0) {
+                summaryContent.innerHTML = '<p>Select perks to see their analysis and synergy...</p>';
+                return;
+            }
+            
+            // Display individual perk information
+            selectedPerks.forEach(perkId => {
+                const perk = perkData[perkId];
+                
+                const perkInfo = document.createElement('div');
+                perkInfo.className = 'perk-info';
+                
+                perkInfo.innerHTML = `
+                    <div class="perk-name">${perk.name}</div>
+                    <div class="pros">
+                        <h4>Pros:</h4>
+                        <ul>
+                            ${perk.pros.map(pro => `<li>${pro}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Cons:</h4>
+                        <ul>
+                            ${perk.cons.map(con => `<li>${con}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="synergy">
+                        <h4>Synergy:</h4>
+                        <ul>
+                            ${perk.synergy.map(syn => `<li>${syn}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                
+                summaryContent.appendChild(perkInfo);
+            });
+            
+            // Add overall loadout synergy section if multiple perks selected
+            if (selectedPerks.length > 1) {
+                const loadoutSynergy = document.createElement('div');
+                loadoutSynergy.className = 'loadout-synergy';
+                
+                loadoutSynergy.innerHTML = `
+                    <h3>Overall Loadout Synergy</h3>
+                    <p>This loadout has ${calculateSynergy(selectedPerks)}.</p>
+                    <p>${getSynergyAdvice(selectedPerks)}</p>
+                `;
+                
+                summaryContent.appendChild(loadoutSynergy);
+            }
+        }
+
+        // Function to calculate overall synergy (simplified for this example)
+        function calculateSynergy(selectedPerks) {
+            // This is a simplified calculation - in a real app, you'd have more complex logic
+            const synergyCount = selectedPerks.length * 2; // Mock calculation
+            
+            if (synergyCount >= 6) {
+                return "excellent synergy";
+            } else if (synergyCount >= 4) {
+                return "good synergy";
+            } else if (synergyCount >= 2) {
+                return "moderate synergy";
+            } else {
+                return "limited synergy";
+            }
+        }
+
+        // Function to provide synergy advice based on selected perks
+        function getSynergyAdvice(selectedPerks) {
+            const perks = selectedPerks.map(id => perkData[id].name.toLowerCase());
+            
+            let advice = "Your loadout ";
+            
+            if (perks.includes("self-care") && perks.includes("botany knowledge")) {
+                advice += "has strong healing capabilities with Self-Care and Botany Knowledge. ";
+            }
+            
+            if (perks.includes("spine chill") && perks.includes("resilience")) {
+                advice += "benefits from the action speed bonuses of Spine Chill and Resilience. ";
+            }
+            
+            if (perks.filter(p => p.includes("dead hard") || p.includes("balanced landing") || p.includes("sprint burst")).length >= 2) {
+                advice += "includes multiple exhaustion perks, so manage their cooldowns carefully. ";
+            }
+            
+            if (perks.includes("borrowed time") && perks.includes("we'll make it")) {
+                advice += "excels at safe unhooks and quick healing with Borrowed Time and We'll Make It. ";
+            }
+            
+            if (perks.includes("iron will") && perks.includes("lightweight")) {
+                advice += "is very stealthy with Iron Will and Lightweight combination. ";
+            }
+            
+            if (advice === "Your loadout ") {
+                advice += "is balanced but could benefit from more focused synergy. Consider perks that complement each other's strengths or cover weaknesses.";
+            }
+            
+            return advice;
+        }
+    </script>
+</body>
+</html>
